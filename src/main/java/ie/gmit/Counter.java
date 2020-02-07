@@ -20,4 +20,12 @@ public class Counter {
         else
             this.count = starting;
     }
+
+    public int increment() {
+        return ++this.count;
+    }
+
+    public int decrement() {
+        return --this.count;
+    }
 }

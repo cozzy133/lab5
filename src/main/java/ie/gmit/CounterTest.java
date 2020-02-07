@@ -10,12 +10,24 @@ public class CounterTest {
     @BeforeEach
     void init()
     {
-        myCounter = new Counter();
+        myCounter = new Counter(2);
     }
 
     @Test
     void testConstructor()
     {
         assertEquals(0, myCounter.getCount());
+    }
+
+    @Test
+    void testIncrement()
+    {
+        assertEquals(1, myCounter.increment());
+    }
+
+    @Test
+    void testDecrement()
+    {
+        assertEquals(-1, myCounter.decrement());
     }
 }
