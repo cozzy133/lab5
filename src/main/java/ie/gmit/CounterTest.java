@@ -7,10 +7,16 @@ import org.junit.jupiter.api.*;
 public class CounterTest {
 
     private Counter myCounter;
+    @BeforeAll
+    public static void print(){
+        System.out.println("Starting\n" +
+                "tests");
+    }
+
     @BeforeEach
     void init()
     {
-        myCounter = new Counter(2);
+        myCounter = new Counter();
     }
 
     @Test
@@ -29,5 +35,11 @@ public class CounterTest {
     void testDecrement()
     {
         assertEquals(-1, myCounter.decrement());
+    }
+
+    @AfterAll
+    public static void done(){
+        System.out.println("“Testing\n" +
+                "Complete");
     }
 }
