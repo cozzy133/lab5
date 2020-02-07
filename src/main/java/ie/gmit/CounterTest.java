@@ -8,38 +8,43 @@ public class CounterTest {
 
     private Counter myCounter;
     @BeforeAll
+    @DisplayName("Starting tests")
     public static void print(){
-        System.out.println("Starting\n" +
-                "tests");
+        System.out.println("Starting tests");
     }
 
     @BeforeEach
-    void init()
+    @DisplayName("New instance of counter")
+    void init(TestInfo testInfo, TestReporter testReporter)
     {
         myCounter = new Counter();
+        System.out.println("timestamp = " + testInfo.getDisplayName());
     }
 
     @Test
-    void testConstructor()
+    @DisplayName("Constructor test")
+    void testConstructor(TestInfo testInfo)
     {
         assertEquals(0, myCounter.getCount());
     }
 
     @Test
-    void testIncrement()
+    @DisplayName("Increment test")
+    void testIncrement(TestInfo testInfo)
     {
         assertEquals(1, myCounter.increment());
     }
 
     @Test
-    void testDecrement()
+    @DisplayName("Decrement test")
+    void testDecrement(TestInfo testInfo)
     {
         assertEquals(-1, myCounter.decrement());
     }
 
     @AfterAll
+    @DisplayName("Testing complete")
     public static void done(){
-        System.out.println("“Testing\n" +
-                "Complete");
+        System.out.println("Testing Complete");
     }
 }
