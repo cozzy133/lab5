@@ -7,5 +7,15 @@ import org.junit.jupiter.api.*;
 public class CounterTest {
 
     private Counter myCounter;
-    @
+    @BeforeEach
+    void init()
+    {
+        myCounter = new Counter();
+    }
+
+    @Test
+    void testConstructor()
+    {
+        assertEquals(0, myCounter.getCount());
+    }
 }
